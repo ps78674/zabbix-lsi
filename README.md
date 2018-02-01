@@ -16,6 +16,6 @@ Installation steps.
 3. Place 'userparameter.lsi.conf' to '/etc/zabbix/zabbix-agent.d/'.
 4. Place folder 'lsi' to '/opt'.
 
-SELinux - I suggest to create a module (senenforce 0, then check audit.log for messages and create module, like ```cat /var/log/audit/audit.log | grep denied | audit2allow -M zabbix_agent_01 && semodule -i zabbix_agent_01.pp```).
+SELinux - I suggest to create a module (senenforce 0, then check audit.log for messages and create module, like ```cat /var/log/audit/audit.log | grep denied | grep zabbix_agent | audit2allow -M zabbix_agent_01 && semodule -i zabbix_agent_01.pp```).
 
 If you using it for DELL PERC monitoring (with perccli), don;t forget to change storcli to perccli in scripts.
