@@ -9,6 +9,7 @@ There are two templates:
 
   All items have a trigger.
 
+
 Installation steps.
 
 1. Install storcli (perccli for DELL).
@@ -22,4 +23,4 @@ SELinux - I suggest to create a module - senenforce 0, then check audit.log for 
    semodule -i zabbix_agent_01.pp
    ```
 
-If you using it for DELL PERC monitoring (with perccli), don;t forget to change storcli to perccli in scripts.
+If you using it for DELL PERC monitoring (with perccli), don't forget to change storcli to perccli in scripts.
