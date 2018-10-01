@@ -1,26 +1,30 @@
 This provides monitoring for LSI physical and virtual drives.
 There are two templates:
-  - Template Server LSI RAID - provides only check for VD's status (is there any not optimal VD's);
-  - Template Server LSI RAID 2 - provides discovery rules for VD's and PD's with next items:
+  - Template Server LSI RAID - provides only check for VD's status (is there any VD with 'Degraded' state);
+  - Template Server LSI RAID 2 - provides discovery rules for VD's / PD's with following items:
     - VD status;
     - PD firmware state;
     - PD predictive failure status;
     - PD SMART alert.
 
-  All items have a trigger.
+  Each item have a trigger.
 
 
 Installation steps.
 
 1. Install storcli (perccli for DELL).
 2. Import templates from 'lsi.xml'.
-3. Place 'userparameter.lsi.conf' to '/etc/zabbix/zabbix-agent.d/'.
-4. Place folder 'lsi' to '/opt'.
+3. Copy 'userparameter.lsi.conf' to '/etc/zabbix/zabbix-agent.d/'.
+4. Copy all scripts from 'lsi' to '/opt/zabbix/lsi/'.
+5. Copy 'storcli' to '/etc/sudoers.d/'.
 
-SELinux - I suggest to create a module - senenforce 0, then check audit.log for messages and create module, like 
+
+SELinux - check for avc messages and create a module.
+
    ```
+   setenforce 0
    cat /var/log/audit/audit.log | grep denied | grep zabbix_agent | audit2allow -M zabbix_agent_01
    semodule -i zabbix_agent_01.pp
    ```
 
-If you using it for DELL PERC monitoring (with perccli), don't forget to change storcli to perccli in scripts.
+For DELL PERC - change command path in 'storcli' and '.config'.
