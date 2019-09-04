@@ -1,6 +1,6 @@
 ### This provides monitoring for LSI physical and virtual drives.
 There are two templates:
-  - Template Server LSI RAID - provides only check for VD's status (is there any VD with 'Degraded' state);
+  - Template Server LSI RAID - provides only check for VD's status (if there any VD with 'Degraded' state);
   - Template Server LSI RAID 2 - provides discovery rules for VD's / PD's with following items:
     - VD status;
     - PD firmware state;
